@@ -1,0 +1,19 @@
+{
+  "name": "tail_trail",
+  "version": "1.0.0",
+  "description": "A server-app for tail trail",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/lauticouget/tail_trail.git"
+  },
+  "author": "Lautaro Couget",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/lauticouget/tail_trail/issues"
+  },
+  "homepage": "https://github.com/lauticouget/tail_trail#readme"
+}
