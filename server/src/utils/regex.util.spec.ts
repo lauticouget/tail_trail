@@ -1,4 +1,4 @@
-import Regex from './regex';
+import Regex from './regex.util';
 
 describe('Properly formatted email', () => {
   it('Should test positive', () => {

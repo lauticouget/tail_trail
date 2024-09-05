@@ -1,15 +1,18 @@
-import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { ObjectType, Field } from '@nestjs/graphql';
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
 import { HydratedDocument } from 'mongoose';
-import Regex from '../../utils/regex';
+
+import Regex from '../../utils/regex.util';
+import { GraphQLTypesFactory } from '../../factories/types.factory';
 
 export type UserDocument = HydratedDocument<User>;
 
 @Schema({ timestamps: true })
 @ObjectType()
 export class User {
-  @Field(() => ID)
+  @Field(GraphQLTypesFactory.ID)
   _id: string;
+
   @Prop({
     required: true,
     index: true,
@@ -21,6 +24,13 @@ export class User {
   })
   @Field()
   email: string;
+
+  @Prop({
+    required: true,
+    type: String,
+  })
+  @Field()
+  password: string;
 }
 
 export const UserSchema = SchemaFactory.createForClass(User);

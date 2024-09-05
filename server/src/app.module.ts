@@ -6,6 +6,8 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { join } from 'path';
 
 import { UserModule } from './user/user.module';
+import { CryptoModule } from './crypto/crypto.module';
+import { AuthModule } from './auth/auth.module';
 import Env from '../env/env.enum';
 
 @Module({
@@ -23,7 +25,9 @@ import Env from '../env/env.enum';
       autoSchemaFile: join(process.cwd(), 'src/schema.gql'),
       sortSchema: true,
     }),
+    CryptoModule,
     UserModule,
+    AuthModule,
   ],
 })
 export class AppModule {}
