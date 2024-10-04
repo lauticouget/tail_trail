@@ -16,7 +16,8 @@
   "coveragePathIgnorePatterns": [
     ".module.ts$",
     ".spec.ts$",
-    "./src/main"
+    "./src/main",
+    ".type.ts"
   ],
   "testEnvironment": "node"
 }

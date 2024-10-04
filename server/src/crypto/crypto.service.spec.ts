@@ -18,10 +18,10 @@ describe('CryptoService', () => {
     expect(service).toBeDefined();
   });
 
-  describe('hashPassword', () => {
+  describe('hash', () => {
     it('should return the proper password hash', async () => {
       const password = 'password/12345';
-      const hash = service.hashPassword(password);
+      const hash = service.hash(password);
       let result: boolean;
       try {
         result = await compare(password, hash);

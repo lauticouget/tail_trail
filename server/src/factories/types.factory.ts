@@ -1,13 +1,16 @@
 import { ID } from '@nestjs/graphql';
 
+import { SignIn } from '../auth/dto/register-user.dto';
 import { User } from '../user/entities/user.entity';
 
-class GraphQLTypesFactory {
+export class GraphQLTypesFactory {
   static ID = () => ID;
 }
 
-class ModelTypesFactory {
+export class ModelTypesFactory {
   static User = () => User;
 }
 
-export { GraphQLTypesFactory, ModelTypesFactory };
+export class CompositeTypesFactory {
+  static SignIn = () => SignIn;
+}

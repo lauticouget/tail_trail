@@ -1,19 +1,19 @@
-import { Test, TestingModule } from '@nestjs/testing';
 import { getModelToken } from '@nestjs/mongoose';
+import { Test, TestingModule } from '@nestjs/testing';
 import { Model, Query } from 'mongoose';
 
-import { UserService } from './user.service';
 import { User, UserDocument } from './entities/user.entity';
-import { getMockedUser, mockedUserModel } from './user.mocker';
+import { getMockedUser, mockedUserModel } from './users.mocker';
+import { UsersService } from './users.service';
 
-describe('UserService', () => {
-  let service: UserService;
+describe('UsersService', () => {
+  let service: UsersService;
   let userModel: Model<UserDocument>;
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
       providers: [
-        UserService,
+        UsersService,
         {
           provide: getModelToken(User.name),
           useValue: mockedUserModel,
@@ -21,7 +21,7 @@ describe('UserService', () => {
       ],
     }).compile();
 
-    service = module.get<UserService>(UserService);
+    service = module.get<UsersService>(UsersService);
     userModel = module.get<Model<UserDocument>>(
       getModelToken(User.name),
     );

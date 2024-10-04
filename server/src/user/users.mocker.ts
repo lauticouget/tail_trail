@@ -2,7 +2,7 @@ import { Types } from 'mongoose';
 
 const mockedUserModel = { findOne: jest.fn() };
 
-const mockedUserService = { findOne: jest.fn() };
+const mockedUsersService = { findOne: jest.fn() };
 
 const getMockedUser = (
   _id = new Types.ObjectId(),
@@ -10,4 +10,4 @@ const getMockedUser = (
   password = 'password value',
 ) => ({ _id, email, password });
 
-export { mockedUserModel, mockedUserService, getMockedUser };
+export { getMockedUser,mockedUserModel, mockedUsersService };
