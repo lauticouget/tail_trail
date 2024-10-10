@@ -1,0 +1,10 @@
+FROM node:20.16.0-alpine
+RUN npm install -g pnpm
+WORKDIR /tail-trail-server
+# Next line saves time when continuosly working with Docker because it allows Docker to cache dependencies. If we were to copy code beforehand then our code changes would disable that caching and trigger the building of node_modules again. This is only used for example purposes since for now Docker is only used as production only.
+COPY package.json pnpm-lock.yaml ./
+RUN pnpm install --prod
+COPY . .
+RUN pnpm run build
+EXPOSE 3000
+CMD ["pnpm", "run", "start:prod"]
